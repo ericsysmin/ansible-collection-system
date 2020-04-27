@@ -1,0 +1,5 @@
+---
+# defaults file for ericsysmin.logrotate
+logrotate_install: true
+logrotate_conf_dir: /etc/logrotate.d/
+logrotate_files: []

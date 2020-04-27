@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  author: ericsymsin
+  role_name: epel
+  description: Role to configure EPEL on RHEL/CentOS based systems
+  company: Avi Networks
+  license: MIT
+  min_ansible_version: 2.4
+  platforms:
+    - name: EL
+      versions:
+        - 6
+        - 7
+  galaxy_tags:
+    - epel
+    - rhel
+    - centos
+dependencies: []

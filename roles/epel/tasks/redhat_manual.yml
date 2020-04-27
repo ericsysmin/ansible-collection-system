@@ -1,0 +1,42 @@
+---
+
+- name: Import EPEL GPG key.
+  rpm_key:
+    key: "{{ epel_repo_gpg_key_url }}"
+    state: present
+
+- name: epel | add epel repository
+  yum_repository:
+    name: epel
+    description: Extra Packages for Enterprise Linux {{ ansible_distribution_major_version }} - $basearch
+    baseurl: "{{ epel_repo_baseurl if epel_repo_use_baseurl else omit }}"
+    metalink: "{{ epel_repo_metalink if not epel_repo_use_baseurl else omit }}"
+    failovermethod: "{{ epel_repo_failovermethod }}"
+    gpgcheck: "{{ epel_repo_gpgcheck }}"
+    enabled: "{{ epel_repo_enabled }}"
+    gpgkey: "{{ epel_repo_gpgkey }}"
+    file: epel
+
+- name: epel | add epel-debuginfo repository
+  yum_repository:
+    name: epel-debuginfo
+    description: Extra Packages for Enterprise Linux {{ ansible_distribution_major_version }} - $basearch - Debug
+    baseurl: "{{ epel_debuginfo_repo_baseurl if epel_debuginfo_repo_use_baseurl else omit }}"
+    metalink: "{{ epel_debuginfo_repo_metalink if not epel_debuginfo_repo_use_baseurl else omit }}"
+    failovermethod: "{{ epel_debuginfo_repo_failovermethod }}"
+    gpgcheck: "{{ epel_debuginfo_repo_gpgcheck }}"
+    enabled: "{{ epel_debuginfo_repo_enabled }}"
+    gpgkey: "{{ epel_debuginfo_repo_gpgkey }}"
+    file: epel
+
+- name: epel | add epel-source repository
+  yum_repository:
+    name: epel-source
+    description: Extra Packages for Enterprise Linux {{ ansible_distribution_major_version }} - $basearch - Source
+    baseurl: "{{ epel_source_repo_baseurl if epel_source_repo_use_baseurl else omit }}"
+    metalink: "{{ epel_source_repo_metalink if not epel_source_repo_use_baseurl else omit }}"
+    failovermethod: "{{ epel_source_repo_failovermethod }}"
+    gpgcheck: "{{ epel_source_repo_gpgcheck  }}"
+    enabled: "{{ epel_source_repo_enabled }}"
+    gpgkey: "{{ epel_source_repo_gpgkey }}"
+    file: epel

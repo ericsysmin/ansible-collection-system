@@ -1,0 +1,19 @@
+---
+- name: chrony | Add the OS specific variables
+  include_vars: "{{ ansible_os_family|lower }}.yml"
+
+- name: chrony | Installation
+  include_tasks: "{{ ansible_os_family|lower }}.yml"
+
+- name: chrony | Copy the chrony.conf template file
+  template:
+    src: chrony.conf.j2
+    dest: "{{ chrony_config_location }}"
+  notify:
+    - restart chrony
+
+- name: chrony | start and enable chrony service
+  service:
+    name: "{{ chrony_service_name }}"
+    state: "{{ chrony_service_state }}"
+    enabled: "{{ chrony_service_enabled }}"

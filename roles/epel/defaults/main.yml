@@ -1,0 +1,34 @@
+---
+# defaults file for ericsysmin.epel
+
+epel_manual: false
+
+# vars if epel_manual is true
+epel_repo_gpg_key_url: "http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+epel_repo_gpg_key_file: "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+epel_repo_url: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
+epel_repofile_path: "/etc/yum.repos.d/epel.repo"
+
+epel_repo_use_baseurl: false
+epel_repo_baseurl: http://download.fedoraproject.org/pub/epel/{{ ansible_distribution_major_version }}/$basearch
+epel_repo_metalink: https://mirrors.fedoraproject.org/metalink?repo=epel-{{ ansible_distribution_major_version }}&arch=$basearch
+epel_repo_failovermethod: priority
+epel_repo_gpgcheck: true
+epel_repo_enabled: true
+epel_repo_gpgkey: file://{{ epel_repo_gpg_key_file }}
+
+epel_debuginfo_repo_use_baseurl: false
+epel_debuginfo_repo_baseurl: http://download.fedoraproject.org/pub/epel/{{ ansible_distribution_major_version }}/$basearch/debug
+epel_debuginfo_repo_metalink: https://mirrors.fedoraproject.org/metalink?repo=epel-debug-{{ ansible_distribution_major_version }}&arch=$basearch
+epel_debuginfo_repo_failovermethod: priority
+epel_debuginfo_repo_gpgcheck: true
+epel_debuginfo_repo_enabled: false
+epel_debuginfo_repo_gpgkey: file://{{ epel_repo_gpg_key_file }}
+
+epel_source_repo_use_baseurl: false
+epel_source_repo_baseurl: http://download.fedoraproject.org/pub/epel/{{ ansible_distribution_major_version }}/SRPMS
+epel_source_repo_metalink: https://mirrors.fedoraproject.org/metalink?repo=epel-source-{{ ansible_distribution_major_version }}&arch=$basearch
+epel_source_repo_failovermethod: priority
+epel_source_repo_gpgcheck: true
+epel_source_repo_enabled: false
+epel_source_repo_gpgkey: file://{{ epel_repo_gpg_key_file }}

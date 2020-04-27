@@ -1,0 +1,8 @@
+---
+parseable: true
+skip_list:
+  - ANSIBLE0010
+  - ANSIBLE0006
+  - E303
+use_default_rules: true
+verbosity: 1

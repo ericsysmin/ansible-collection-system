@@ -1,0 +1,7 @@
+---
+remi_repo_url: "https://rpms.remirepo.net/fedora/remi-release-{{ ansible_distribution_major_version }}.rpm"
+remi_repo_gpg_key_url: >-
+  {%- if ansible_distribution_major_version|int in ['26', '27'] -%}https://rpms.remirepo.net/RPM-GPG-KEY-remi2017
+  {%- elif ansible_distribution_major_version|int is version('28', '>=') -%}https://rpms.remirepo.net/RPM-GPG-KEY-remi2018
+  {%- else -%}https://rpms.remirepo.net/RPM-GPG-KEY-remi
+  {%- endif -%}

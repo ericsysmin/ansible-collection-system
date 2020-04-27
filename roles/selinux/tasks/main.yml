@@ -1,0 +1,30 @@
+---
+
+- name: SELinux | RedHat | Install libselinux-python
+  yum: name=libselinux-python state=present
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+
+- name: SELinux | Set SELinux policy and state
+  selinux: policy={{ selinux_policy }} state={{ selinux_state }}
+  register: selinux
+
+- debug: var=selinux
+
+- block:
+    - name: SELinux | Restart machine
+      shell: sleep 2 && shutdown -r now "Restarting with SELinux Disabled"
+      async: 1
+      poll: 0
+      ignore_errors: true
+    - name: SELinux | Wait for the server to come back
+      become: false
+      delegate_to: localhost
+      wait_for:
+        port: "{{ ssh_port }}"
+        host: "{{ item.address }}"
+        search_regex: SSH
+        delay: 10
+  when: selinux.changed and reboot

@@ -1,0 +1,27 @@
+---
+- name: Repo Remi | DNF | Deploy repository
+  dnf:
+    name: "{{ remi_repo_url }}"
+    validate_certs: "{{ remi_repo_validate_certs }}"
+
+- name: Repo Remi | Enable/Disable specific remi repository
+  block:
+    - name: Repo Remi | DNF | Make sure dnf-plugins-core is present
+      dnf:
+        name: dnf-plugins-core
+
+    - name: Repo Remi | Enable remi repository
+      command: dnf config-manager --enable {{ item }}
+      loop: "{{ remi_repo_enable_list }}"
+      when: remi_repo_enable_list is defined
+
+    - name: Repo Remi | Disable remi repository
+      command: dnf config-manager --disable {{ item }}
+      loop: "{{ remi_repo_disable_list }}"
+      when: remi_repo_disable_list is defined
+
+    - name: Repo Remi | Update dnf cache
+      dnf:
+        update_cache: yes
+  when: remi_repo_enable_list is defined or
+        remi_repo_disable_list is defined

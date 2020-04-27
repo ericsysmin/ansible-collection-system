@@ -1,0 +1,14 @@
+---
+# tasks file for ericsysmin.epel
+
+- name: epel | Install epel repo using epel-release
+  include_tasks: "{{ ansible_os_family|lower }}.yml"
+  when:
+    - ansible_os_family|lower == "redhat"
+    - not epel_manual
+
+- name: epel | Install epel repo manually
+  include_tasks: "{{ ansible_os_family|lower }}_manual.yml"
+  when:
+    - ansible_os_family|lower == "redhat"
+    - epel_manual

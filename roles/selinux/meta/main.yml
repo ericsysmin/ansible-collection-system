@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  author: ericsysmin
+  role_name: selinux
+  company: Avi Networks
+  description: Manage SELinux settings on a host
+  issue_tracker_url: https://github.com/ericsysmin/ansible-role-selinux/issues
+  license: MIT
+  min_ansible_version: 2.0.0
+  platforms:
+    - name: EL
+      versions:
+        - 7
+  galaxy_tags:
+    - selinux
+    - centos
+    - rhel
+    - oracle
+dependencies: []

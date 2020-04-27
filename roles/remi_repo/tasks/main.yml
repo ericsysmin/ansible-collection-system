@@ -1,0 +1,34 @@
+---
+- name: Repo Remi | Include {{ ansible_distribution }} specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - vars/{{ ansible_distribution|lower }}.yml
+    - vars/default.yml
+
+- name: Repo Remi | Import remi GPG key.
+  block:
+    - name: Repo Remi | Import remi GPG key.
+      rpm_key:
+        key: "{{ remi_repo_gpg_key_url }}"
+      register: task_result
+      until: task_result is success
+      retries: 10
+      delay: 2
+  rescue:
+    - name: Repo Remi | Ensure curl is present (systems without SNI).
+      package: name=curl
+      register: task_result
+      until: task_result is success
+      retries: 10
+      delay: 2
+    - name: Repo Remi | Download GPG key (systems without SNI).
+      command: "curl -sSL {{ remi_repo_gpg_key_url }} -o /tmp/remi_repo-gpg"
+    - name: Repo Remi | Add Docker GPG key (systems without SNI).
+      command: rpm --import  /tmp/remi_repo-gpg
+    - name: Repo Remi | Remove docker-gpg from tmp folder
+      file:
+        path: /tmp/remi_repo-gpg
+        state: absent
+
+- name: Repo Remi | Install {{ ansible_distribution }} version of Remi Repository
+  include_tasks: "{{ ansible_pkg_mgr }}.yml"

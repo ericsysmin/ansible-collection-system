@@ -1,0 +1,28 @@
+---
+# sudo: required
+language: python
+services:
+  - docker
+
+before_install:
+  - sudo apt-get -qq update
+
+env:
+  global:
+    - ROLE_NAME: selinux
+  matrix:
+    - MOLECULE_DISTRO: centos:7
+
+install:
+  - pip install molecule docker
+
+before_script:
+  - cd ../
+  - mv ansible-role-$ROLE_NAME ericsysmin.$ROLE_NAME
+  - cd ericsysmin.$ROLE_NAME
+
+script:
+  - molecule test
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

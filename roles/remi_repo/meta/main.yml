@@ -1,0 +1,28 @@
+---
+galaxy_info:
+  role_name: remi_repo
+  author: ericsysmin
+  company: Avi Networks
+  description: Remi's RPM repository for RHEL/CentOS.
+  license: MIT
+  min_ansible_version: 2.4
+  platforms:
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Fedora
+      versions:
+        - 28
+        - 27
+        - 26
+  galaxy_tags:
+    - packaging
+    - epel
+    - repository
+    - repo
+    - redhat
+    - rhel
+    - centos
+    - fedora
+dependencies: []

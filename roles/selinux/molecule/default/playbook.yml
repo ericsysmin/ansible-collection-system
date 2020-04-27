@@ -1,0 +1,9 @@
+---
+- name: Converge
+  hosts: all
+  pre_tasks:
+    - name: Install SELinux-policy
+      package: name=selinux-policy
+  roles:
+    - role: ericsysmin.selinux
+      selinux_state: disabled
