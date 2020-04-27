@@ -5,3 +5,16 @@
   until: task_result is success
   retries: 10
   delay: 2
+  when: ansible_distribution == 'CentOS' or
+        ansible_distribution == 'Red Hat Enterprise Linux'
+
+- name: Install EPEL repo via Repository Package
+  dnf:
+    enablerepo: PowerTools
+  register: task_result
+  until: task_result is success
+  retries: 10
+  delay: 2
+  when:
+    - ansible_os_family == "RedHat"
+    - ansible_distribution_major_version|int >= 8

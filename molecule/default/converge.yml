@@ -1,0 +1,30 @@
+---
+- name: Converge
+  hosts: all
+  pre_tasks:
+    - name: upgrade python # noqa 403
+      package:
+        name: python
+        state: latest
+    - name: Install SELinux-policy
+      package: name=selinux-policy
+      when: ansible_os_family == "RedHat"
+    - name: create containerd folder
+      file:
+        path: /etc/systemd/system/containerd.service.d
+        state: directory
+      when: ansible_service_mgr == "systemd"
+    - name: override file for containerd
+      copy:
+        src: files/override.conf
+        dest: /etc/systemd/system/containerd.service.d/override.conf
+      when: ansible_service_mgr == "systemd"
+  roles:
+    - role: ericsysmin.system.selinux
+      when: ansible_os_family == "RedHat"
+    - role: ericsysmin.system.chrony
+    - role: ericsysmin.system.epel
+      when: ansible_os_family == "RedHat"
+    - role: ericsysmin.system.logrotate
+    - role: ericsysmin.system.remi_repo
+      when: ansible_os_family == "RedHat"

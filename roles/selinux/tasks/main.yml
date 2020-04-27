@@ -1,7 +1,12 @@
 ---
+- name: SELinux | Include {{ ansible_os_family }} specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - vars/{{ ansible_os_family|lower }}.yml
+    - vars/default.yml
 
 - name: SELinux | RedHat | Install libselinux-python
-  yum: name=libselinux-python state=present
+  package: name={{ selinux_python_package }}
   register: task_result
   until: task_result is success
   retries: 10

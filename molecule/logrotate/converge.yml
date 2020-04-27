@@ -1,0 +1,34 @@
+---
+- name: Converge
+  hosts: all
+  pre_tasks:
+    - name: Using apt update the packages
+      apt:
+        update_cache: yes
+      when: ansible_os_family == "Debian"
+    - name: Using apt update the packages
+      yum:
+        update_cache: yes
+      when: ansible_os_family == "RedHat"
+    - name: create containerd folder
+      file:
+        path: /etc/systemd/system/containerd.service.d
+        state: directory
+      when: ansible_service_mgr == "systemd"
+    - name: override file for containerd
+      copy:
+        src: files/override.conf
+        dest: /etc/systemd/system/containerd.service.d/override.conf
+      when: ansible_service_mgr == "systemd"
+  roles:
+    - role: ericsysmin.system.logrotate
+      logrotate_files:
+        - name: rails
+          path: "/var/log/service_logs"
+          options:
+            - weekly
+            - size 25M
+            - missingok
+            - compress
+            - delaycompress
+            - copytruncate

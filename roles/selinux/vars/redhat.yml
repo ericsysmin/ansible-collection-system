@@ -1,0 +1,4 @@
+selinux_python_package: >-
+  {%- if ansible_python.version.major == 2 -%}libselinux-python
+  {%- else -%}libselinux-python3
+  {%- endif -%}

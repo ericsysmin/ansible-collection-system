@@ -36,7 +36,16 @@ license_file: ''
 
 # A list of tags you want to associate with the collection for indexing/searching. A tag name has the same character
 # requirements as 'namespace' and 'name'
-tags: []
+tags:
+  - system
+  - chrony
+  - epel
+  - logrotate
+  - ntp
+  - remi_repo
+  - selinux
+  - rhel
+  - ubuntu
 
 # Collections that this collection requires to be installed for it to be usable. The key of the dict is the
 # collection label 'namespace.name'. The value is a version range
@@ -45,13 +54,13 @@ tags: []
 dependencies: {}
 
 # The URL of the originating SCM repository
-repository: http://example.com/repository
+repository: https://github.com/ericsysmin/ansible-collection-system
 
 # The URL to any online docs
-documentation: http://docs.example.com
+documentation: https://github.com/ericsysmin/ansible-collection-system
 
 # The URL to the homepage of the collection/project
-homepage: http://example.com
+homepage: https://github.com/ericsysmin/ansible-collection-system
 
 # The URL to the collection issue tracker
-issues: http://example.com/issue/tracker
+issues: https://github.com/ericsysmin/ansible-collection-system/issues
