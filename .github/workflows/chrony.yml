@@ -9,7 +9,7 @@ on:
       - 'roles/chrony/**'
       - '.github/workflows/chrony.yml'
 jobs:
-  roles_test:
+  molecule_chrony:
     runs-on: ubuntu-18.04
     env:
       PY_COLORS: 1
