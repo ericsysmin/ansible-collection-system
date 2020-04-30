@@ -2,12 +2,12 @@ name: "Role: ericsysmin.system.epel Molecule Test"
 on:
   push:
     paths:
-      - roles/epel/**
-      - .github/workflows/epel.yml
+      - 'roles/epel/**'
+      - '.github/workflows/epel.yml'
   pull_request:
     paths:
-      - roles/epel/**
-      - .github/workflows/epel.yml
+      - 'roles/epel/**'
+      - '.github/workflows/epel.yml'
 jobs:
   roles_test:
     runs-on: ubuntu-18.04
