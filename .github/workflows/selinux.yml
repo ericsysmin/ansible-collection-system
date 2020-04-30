@@ -1,4 +1,4 @@
-name: "ericsysmin.system.selinux Molecule Test"
+name: "ericsysmin.system.selinux"
 on:
   push:
     paths:
@@ -9,7 +9,7 @@ on:
       - 'roles/selinux/**'
       - '.github/workflows/selinux.yml'
 jobs:
-  selinux:
+  molecule:
     runs-on: ubuntu-18.04
     env:
       PY_COLORS: 1

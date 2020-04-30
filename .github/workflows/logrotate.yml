@@ -1,4 +1,4 @@
-name: "ericsysmin.system.logrotate Molecule Test"
+name: "ericsysmin.system.logrotate"
 on:
   push:
     paths:

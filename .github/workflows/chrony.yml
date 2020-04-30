@@ -1,4 +1,4 @@
-name: "ericsysmin.system.chrony Molecule Test"
+name: "ericsysmin.system.chrony"
 on:
   push:
     paths:
@@ -9,7 +9,7 @@ on:
       - 'roles/chrony/**'
       - '.github/workflows/chrony.yml'
 jobs:
-  chrony:
+  molecule:
     runs-on: ubuntu-18.04
     env:
       PY_COLORS: 1

@@ -1,4 +1,4 @@
-name: "ericsysmin.system.remi_repo Molecule Test"
+name: "ericsysmin.system.remi_repo"
 on:
   push:
     paths:
@@ -9,7 +9,7 @@ on:
       - 'roles/remi_repo/**'
       - '.github/workflows/remi_repo.yml'
 jobs:
-  remi_repo:
+  molecule:
     runs-on: ubuntu-18.04
     env:
       PY_COLORS: 1

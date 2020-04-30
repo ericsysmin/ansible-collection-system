@@ -9,7 +9,7 @@ on:
       - 'roles/ntp/**'
       - '.github/workflows/ntp.yml'
 jobs:
-  ntp:
+  molecule:
     runs-on: ubuntu-18.04
     env:
       PY_COLORS: 1
