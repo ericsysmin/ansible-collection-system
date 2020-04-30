@@ -3,7 +3,8 @@
   hosts: all
   pre_tasks:
     - name: Update package cache
-      package: update_cache=yes changed_when=false
+      package: update_cache=yes
+      changed_when: false
     - name: create containerd folder
       file:
         path: /etc/systemd/system/containerd.service.d
