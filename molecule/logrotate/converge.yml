@@ -2,14 +2,9 @@
 - name: Converge
   hosts: all
   pre_tasks:
-    - name: Using apt update the packages
-      apt:
-        update_cache: yes
-      when: ansible_os_family == "Debian"
-    - name: Using apt update the packages
-      yum:
-        update_cache: yes
-      when: ansible_os_family == "RedHat"
+    - name: Update package cache
+      action: >
+        {{ ansible_pkg_mgr }} update_cache=yes
     - name: create containerd folder
       file:
         path: /etc/systemd/system/containerd.service.d
