@@ -3,9 +3,11 @@ on:
   push:
     paths:
       - roles/ntp/**
+      - .github/workflows/ntp.yml
   pull_request:
     paths:
       - roles/ntp/**
+      - .github/workflows/ntp.yml
 jobs:
   roles_test:
     runs-on: ubuntu-18.04

@@ -3,9 +3,11 @@ on:
   push:
     paths:
       - roles/remi_repo/**
+      - .github/workflows/remi_repo.yml
   pull_request:
     paths:
       - roles/remi_repo/**
+      - .github/workflows/remi_repo.yml
 jobs:
   roles_test:
     runs-on: ubuntu-18.04

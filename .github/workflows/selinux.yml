@@ -7,6 +7,7 @@ on:
   pull_request:
     paths:
       - roles/selinux/**
+      - .github/workflows/selinux.yml
 jobs:
   roles_test:
     runs-on: ubuntu-18.04

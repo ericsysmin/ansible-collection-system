@@ -3,9 +3,11 @@ on:
   push:
     paths:
       - roles/chrony/**
+      - .github/workflows/chrony.yml
   pull_request:
     paths:
       - roles/chrony/**
+      - .github/workflows/chrony.yml
 jobs:
   roles_test:
     runs-on: ubuntu-18.04

@@ -3,9 +3,11 @@ on:
   push:
     paths:
       - roles/logrotate/**
+      - .github/workflows/logrotate.yml
   pull_request:
     paths:
       - roles/logrotate/**
+      - .github/workflows/logrotate.yml
 jobs:
   roles_test:
     runs-on: ubuntu-18.04
