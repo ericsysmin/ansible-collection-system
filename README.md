@@ -12,6 +12,8 @@ Documentation for the collection.
 
 #### [Documentation](https://github.com/ericsysmin/ansible-collection-system/blob/master/docs/chrony.md)
 
+* * *
+
 ### epel
 
 #### Build Status
@@ -20,11 +22,15 @@ Documentation for the collection.
 
 #### [Documentation](https://github.com/ericsysmin/ansible-collection-system/blob/master/docs/epel.md)
 
+* * *
+
 ### logrotate
 
 [![Role: ericsysmin.system.logrotate Molecule Test](https://github.com/ericsysmin/ansible-collection-system/workflows/Role:%20ericsysmin.system.logrotate%20Molecule%20Test/badge.svg)](https://github.com/ericsysmin/ansible-collection-system/actions?query=workflow%3A%22Role%3A+ericsysmin.system.logrotate+Molecule+Test%22)
 
 #### [Documentation](https://github.com/ericsysmin/ansible-collection-system/blob/master/docs/logrotate.md)
+
+* * *
 
 ### ntp
 
@@ -32,11 +38,15 @@ Documentation for the collection.
 
 #### [Documentation](https://github.com/ericsysmin/ansible-collection-system/blob/master/docs/ntp.md)
 
+* * *
+
 ### remi_repo
 
 [![Role: ericsysmin.system.remi_repo Molecule Test](https://github.com/ericsysmin/ansible-collection-system/workflows/Role:%20ericsysmin.system.remi_repo%20Molecule%20Test/badge.svg)](https://github.com/ericsysmin/ansible-collection-system/actions?query=workflow%3A%22Role%3A+ericsysmin.system.remi_repo+Molecule+Test%22)
 
 #### [Documentation](https://github.com/ericsysmin/ansible-collection-system/blob/master/docs/remi_repo.md)
+
+* * *
 
 ### selinux
 
