@@ -1,4 +1,4 @@
-name: "ericsysmin.system.ntp Molecule Test"
+name: "ericsysmin.system.ntp"
 on:
   push:
     paths:
