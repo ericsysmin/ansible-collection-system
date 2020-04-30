@@ -1,16 +1,21 @@
-name: "Role: ericsysmin.system.selinux Molecule Test"
+name: "ericsysmin.system.selinux Molecule Test"
 on:
-- push
-- pull_request
-
+  push:
+    paths:
+      - 'roles/selinux/**'
+      - '.github/workflows/selinux.yml'
+  pull_request:
+    paths:
+      - 'roles/selinux/**'
+      - '.github/workflows/selinux.yml'
 jobs:
-  roles_test:
+  selinux:
     runs-on: ubuntu-18.04
     env:
       PY_COLORS: 1
       ANSIBLE_FORCE_COLOR: 1
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         molecule_distro:
           - distro: centos:7
