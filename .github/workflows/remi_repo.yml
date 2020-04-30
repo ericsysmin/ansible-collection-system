@@ -1,8 +1,11 @@
 name: "Role: ericsysmin.system.remi_repo Molecule Test"
 on:
-- push
-- pull_request
-
+  push:
+    paths:
+      - roles/remi_repo/**
+  pull_request:
+    paths:
+      - roles/remi_repo/**
 jobs:
   roles_test:
     runs-on: ubuntu-18.04

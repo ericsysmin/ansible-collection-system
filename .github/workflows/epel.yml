@@ -1,8 +1,11 @@
 name: "Role: ericsysmin.system.epel Molecule Test"
 on:
-- push
-- pull_request
-
+  push:
+    paths:
+      - roles/epel/**
+  pull_request:
+    paths:
+      - roles/epel/**
 jobs:
   roles_test:
     runs-on: ubuntu-18.04

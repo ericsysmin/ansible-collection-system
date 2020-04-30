@@ -1,8 +1,11 @@
 name: "Role: ericsysmin.system.logrotate Molecule Test"
 on:
-- push
-- pull_request
-
+  push:
+    paths:
+      - roles/logrotate/**
+  pull_request:
+    paths:
+      - roles/logrotate/**
 jobs:
   roles_test:
     runs-on: ubuntu-18.04

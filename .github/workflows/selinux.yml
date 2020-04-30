@@ -1,8 +1,11 @@
 name: "Role: ericsysmin.system.selinux Molecule Test"
 on:
-- push
-- pull_request
-
+  push:
+    paths:
+      - roles/selinux/**
+  pull_request:
+    paths:
+      - roles/selinux/**
 jobs:
   roles_test:
     runs-on: ubuntu-18.04

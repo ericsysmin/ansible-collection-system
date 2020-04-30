@@ -1,8 +1,11 @@
 name: "Role: ericsysmin.system.chrony Molecule Test"
 on:
-- push
-- pull_request
-
+  push:
+    paths:
+      - roles/chrony/**
+  pull_request:
+    paths:
+      - roles/chrony/**
 jobs:
   roles_test:
     runs-on: ubuntu-18.04
