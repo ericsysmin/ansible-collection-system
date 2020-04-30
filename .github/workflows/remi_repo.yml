@@ -1,4 +1,4 @@
-name: "Role: ericsysmin.system.ntp Molecule Test"
+name: "Role: ericsysmin.system.remi_repo Molecule Test"
 on:
 - push
 - pull_request
