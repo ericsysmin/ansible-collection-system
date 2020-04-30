@@ -4,7 +4,7 @@
   pre_tasks:
     - name: Update package cache
       action: >
-        {{ ansible_pkg_mgr }} update_cache=yes
+        {{ ansible_pkg_mgr }} update_cache=yes changed_when=false
     - name: create containerd folder
       file:
         path: /etc/systemd/system/containerd.service.d
