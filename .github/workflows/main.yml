@@ -28,7 +28,6 @@ jobs:
           - distro: debian:9
             command: /lib/systemd/systemd
         collection_role:
-          - logrotate
           - ntp
           - chrony
           - epel
