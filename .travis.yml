@@ -14,8 +14,8 @@ env:
     - COLLECTION_NAME: system
   jobs:
     - ROLE=chrony MOLECULE_DISTRO=centos:7 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
-    - ROLE=chrony MOLECULE_DISTRO=fedora:29 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
-    - ROLE=chrony MOLECULE_DISTRO=fedora:28 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
+#    - ROLE=chrony MOLECULE_DISTRO=fedora:29 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
+#    - ROLE=chrony MOLECULE_DISTRO=fedora:28 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
     - ROLE=chrony MOLECULE_DISTRO=ubuntu:xenial MOLECULE_COMMAND=/sbin/init
     - ROLE=chrony MOLECULE_DISTRO=ubuntu:bionic MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/lib/systemd/systemd
     - ROLE=chrony MOLECULE_DISTRO=debian:stretch MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/lib/systemd/systemd
@@ -23,26 +23,26 @@ env:
     - ROLE=epel MOLECULE_DISTRO=centos:7 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
 
     - ROLE=logrotate MOLECULE_DISTRO=centos:7 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
-    - ROLE=logrotate MOLECULE_DISTRO=fedora:29 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
-    - ROLE=logrotate MOLECULE_DISTRO=fedora:28 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
+#    - ROLE=logrotate MOLECULE_DISTRO=fedora:29 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
+#    - ROLE=logrotate MOLECULE_DISTRO=fedora:28 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
     - ROLE=logrotate MOLECULE_DISTRO=ubuntu:xenial MOLECULE_COMMAND=/sbin/init
     - ROLE=logrotate MOLECULE_DISTRO=ubuntu:bionic MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/lib/systemd/systemd
     - ROLE=logrotate MOLECULE_DISTRO=debian:stretch MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/lib/systemd/systemd
 
     - ROLE=ntp MOLECULE_DISTRO=centos:7 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
-    - ROLE=ntp MOLECULE_DISTRO=fedora:29 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
-    - ROLE=ntp MOLECULE_DISTRO=fedora:28 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
+#    - ROLE=ntp MOLECULE_DISTRO=fedora:29 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
+#    - ROLE=ntp MOLECULE_DISTRO=fedora:28 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
     - ROLE=ntp MOLECULE_DISTRO=ubuntu:xenial MOLECULE_COMMAND=/sbin/init
     - ROLE=ntp MOLECULE_DISTRO=ubuntu:bionic MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/lib/systemd/systemd
     - ROLE=ntp MOLECULE_DISTRO=debian:stretch MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/lib/systemd/systemd
 
     - ROLE=remi_repo MOLECULE_DISTRO=centos:7 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
-    - ROLE=remi_repo MOLECULE_DISTRO=fedora:29 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
-    - ROLE=remi_repo MOLECULE_DISTRO=fedora:28 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
+#    - ROLE=remi_repo MOLECULE_DISTRO=fedora:29 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
+#    - ROLE=remi_repo MOLECULE_DISTRO=fedora:28 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
 
     - ROLE=selinux MOLECULE_DISTRO=centos:7 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
-    - ROLE=selinux MOLECULE_DISTRO=fedora:29 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
-    - ROLE=selinux MOLECULE_DISTRO=fedora:28 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
+#    - ROLE=selinux MOLECULE_DISTRO=fedora:29 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
+#    - ROLE=selinux MOLECULE_DISTRO=fedora:28 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
 
 install:
   - pip install molecule yamllint ansible-lint docker
