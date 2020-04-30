@@ -44,6 +44,8 @@ env:
 #    - ROLE=selinux MOLECULE_DISTRO=fedora:29 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
 #    - ROLE=selinux MOLECULE_DISTRO=fedora:28 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
 
+jobs:
+  fast_finish: true
 install:
   - pip install molecule yamllint ansible-lint docker
 
