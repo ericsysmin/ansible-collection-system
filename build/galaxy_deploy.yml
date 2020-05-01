@@ -9,7 +9,7 @@
     - name: Ensure the ANSIBLE_GALAXY_TOKEN environment variable is set.
       fail:
         msg: ANSIBLE_GALAXY_TOKEN is not set.
-      when: "lookup('env','ANSIBLE_GALAXY_TOKEN') == ''"
+      when: "lookup('env','ANSIBLE_GALAXY_TOKEN') | default(false)"
     - name: Ensure the ~/.ansible directory exists.
       file:
         path: ~/.ansible
@@ -24,11 +24,14 @@
       template:
         src: templates/galaxy.yml.j2
         dest: ../galaxy.yml
+      register: galaxy_yml
     - name: Build the collection.
       command: >
         ansible-galaxy collection build
         chdir=../
+      when: galaxy_yml.changed
     - name: Publish the collection.
       command: >
         ansible-galaxy collection publish ./ericsysmin-system-{{ tag }}.tar.gz
         chdir=../
+      when: galaxy_yml.changed
