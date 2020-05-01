@@ -1,16 +1,21 @@
-name: "Role: ericsysmin.system.logrotate Molecule Test"
+name: "ericsysmin.system.logrotate"
 on:
-- push
-- pull_request
-
+  push:
+    paths:
+      - 'roles/logrotate/**'
+      - '.github/workflows/logrotate.yml'
+  pull_request:
+    paths:
+      - 'roles/logrotate/**'
+      - '.github/workflows/logrotate.yml'
 jobs:
-  roles_test:
+  logrotate:
     runs-on: ubuntu-18.04
     env:
       PY_COLORS: 1
       ANSIBLE_FORCE_COLOR: 1
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         molecule_distro:
           - distro: centos:7

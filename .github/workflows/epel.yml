@@ -1,16 +1,21 @@
-name: "Role: ericsysmin.system.epel Molecule Test"
+name: "ericsysmin.system.epel"
 on:
-- push
-- pull_request
-
+  push:
+    paths:
+      - 'roles/epel/**'
+      - '.github/workflows/epel.yml'
+  pull_request:
+    paths:
+      - 'roles/epel/**'
+      - '.github/workflows/epel.yml'
 jobs:
-  roles_test:
+  molecule:
     runs-on: ubuntu-18.04
     env:
       PY_COLORS: 1
       ANSIBLE_FORCE_COLOR: 1
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         molecule_distro:
           - distro: centos:7
