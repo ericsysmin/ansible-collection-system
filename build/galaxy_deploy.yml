@@ -9,7 +9,7 @@
     - name: Ensure the ANSIBLE_GALAXY_TOKEN environment variable is set.
       fail:
         msg: ANSIBLE_GALAXY_TOKEN is not set.
-      when: "lookup('env','ANSIBLE_GALAXY_TOKEN') | default(false)"
+      when: "lookup('env','ANSIBLE_GALAXY_TOKEN') | length == 0"
     - name: Ensure the ~/.ansible directory exists.
       file:
         path: ~/.ansible
