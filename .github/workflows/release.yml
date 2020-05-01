@@ -26,5 +26,4 @@ jobs:
 
       - name: Run role test
         run: >-
-          ansible-playbook -i 'localhost,' build/galaxy_deploy.yml
-            -e "github_tag=${{ github.ref }}"
+          ansible-playbook -i 'localhost,' build/galaxy_deploy.yml -e "github_tag=${{ github.ref }}"
