@@ -25,12 +25,12 @@
         src: templates/galaxy.yml.j2
         dest: ../galaxy.yml
       register: galaxy_yml
-    - name: Build the collection.
+    - name: Build the collection. # noqa 503
       command: >
         ansible-galaxy collection build
         chdir=../
       when: galaxy_yml.changed
-    - name: Publish the collection.
+    - name: Publish the collection. # noqa 503
       command: >
         ansible-galaxy collection publish ./ericsysmin-system-{{ tag }}.tar.gz
         chdir=../
