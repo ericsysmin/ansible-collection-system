@@ -13,6 +13,23 @@ Ansible collection that holds roles, that can be used to configure common system
 | remi_repo | [![Role: ericsysmin.system.remi_repo](https://github.com/ericsysmin/ansible-collection-system/workflows/ericsysmin.system.remi_repo/badge.svg)](https://github.com/ericsysmin/ansible-collection-system/actions?query=workflow%3A%22ericsysmin.system.remi_repo%22) | [Documentation](https://github.com/ericsysmin/ansible-collection-system/blob/master/docs/remi_repo.md) |
 | selinux   | [![Role: ericsysmin.system.selinux](https://github.com/ericsysmin/ansible-collection-system/workflows/ericsysmin.system.selinux/badge.svg)](https://github.com/ericsysmin/ansible-collection-system/actions?query=workflow%3A%22ericsysmin.system.selinux%22)       | [Documentation](https://github.com/ericsysmin/ansible-collection-system/blob/master/docs/selinux.md)   |
 
+## Usage
+
+You can find specific to each role within the "Documentation" link for each role. However, most should be in this format.
+
+```yaml
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Include role
+      include_role:
+        name: ericsysmin.system.<role_name>
+      vars:
+        var1: value1
+        var2: value2
+```
+
 ## Testing
 
 Testing is done through GitHub Actions, and can be tested locally as well. GitHub Actions can be located [here](https://github.com/ericsysmin/ansible-collection-system/actions).
