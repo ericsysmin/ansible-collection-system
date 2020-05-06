@@ -41,10 +41,11 @@ jobs:
 
       - name: Build the collection
         run: |
-          echo ::set-env collection_file=$( basename $(ansible-galaxy collection build -f | awk -F" " '{print $NF}'))
+          collection_file=$( basename $(ansible-galaxy collection build -f | awk -F" " '{print $NF}'))
+          echo ::set-env name=COLLECTION_FILE::$collection_file
 
       - name: Install the collection
-        run: ansible-galaxy collection install $collection_file
+        run: ansible-galaxy collection install $COLLECTION_FILE
 
       - name: Run role test
         run: >-
