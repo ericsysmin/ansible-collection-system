@@ -41,7 +41,7 @@ jobs:
 
       - name: Build the collection
         run: |
-          export collection_file=$( basename $(ansible-galaxy collection build -f | awk -F" " '{print $NF}'))
+          echo ::set-env collection_file=$( basename $(ansible-galaxy collection build -f | awk -F" " '{print $NF}'))
 
       - name: Install the collection
         run: ansible-galaxy collection install $collection_file
