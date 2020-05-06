@@ -45,7 +45,7 @@ jobs:
           echo "::set-env name=COLLECTION_FILE::$collection_file"
 
       - name: Install the collection
-        run: ansible-galaxy collection install $COLLECTION_FILE -p /etc/ansible/collections
+        run: ansible-galaxy collection install $COLLECTION_FILE
 
       - name: Run role test
         run: >-
