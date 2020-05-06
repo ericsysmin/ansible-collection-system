@@ -37,6 +37,7 @@ jobs:
         run: |
           sudo apt install docker
           python -m pip install --upgrade pip
+          pip install git+https://github.com/ericsysmin/molecule.git@patch-2
           pip install molecule yamllint ansible-lint docker
 
       - name: Build the collection
