@@ -3,10 +3,12 @@ on:
   push:
     paths:
       - 'roles/remi_repo/**'
+      - 'molecule/remi_repo/**'
       - '.github/workflows/remi_repo.yml'
   pull_request:
     paths:
       - 'roles/remi_repo/**'
+      - 'molecule/remi_repo/**'
       - '.github/workflows/remi_repo.yml'
 jobs:
   molecule:

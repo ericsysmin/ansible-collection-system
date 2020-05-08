@@ -3,10 +3,12 @@ on:
   push:
     paths:
       - 'roles/chrony/**'
+      - 'molecule/chrony/**'
       - '.github/workflows/chrony.yml'
   pull_request:
     paths:
       - 'roles/chrony/**'
+      - 'molecule/chrony/**'
       - '.github/workflows/chrony.yml'
 jobs:
   molecule:

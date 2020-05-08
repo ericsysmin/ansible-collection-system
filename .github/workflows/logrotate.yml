@@ -3,10 +3,12 @@ on:
   push:
     paths:
       - 'roles/logrotate/**'
+      - 'molecule/logrotate/**'
       - '.github/workflows/logrotate.yml'
   pull_request:
     paths:
       - 'roles/logrotate/**'
+      - 'molecule/logrotate/**'
       - '.github/workflows/logrotate.yml'
 jobs:
   logrotate:

@@ -3,10 +3,12 @@ on:
   push:
     paths:
       - 'roles/selinux/**'
+      - 'molecule/selinux/**'
       - '.github/workflows/selinux.yml'
   pull_request:
     paths:
       - 'roles/selinux/**'
+      - 'molecule/selinux/**'
       - '.github/workflows/selinux.yml'
 jobs:
   molecule:

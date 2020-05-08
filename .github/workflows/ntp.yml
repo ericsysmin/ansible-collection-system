@@ -3,10 +3,12 @@ on:
   push:
     paths:
       - 'roles/ntp/**'
+      - 'molecule/ntp/**'
       - '.github/workflows/ntp.yml'
   pull_request:
     paths:
       - 'roles/ntp/**'
+      - 'molecule/ntp/**'
       - '.github/workflows/ntp.yml'
 jobs:
   molecule:

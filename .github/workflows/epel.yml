@@ -3,10 +3,12 @@ on:
   push:
     paths:
       - 'roles/epel/**'
+      - 'molecule/epel/**'
       - '.github/workflows/epel.yml'
   pull_request:
     paths:
       - 'roles/epel/**'
+      - 'molecule/epel/**'
       - '.github/workflows/epel.yml'
 jobs:
   molecule:
