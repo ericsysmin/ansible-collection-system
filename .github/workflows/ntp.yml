@@ -5,11 +5,13 @@ on:
       - 'roles/ntp/**'
       - 'molecule/ntp/**'
       - '.github/workflows/ntp.yml'
+      - 'molecule/common/**'
   pull_request:
     paths:
       - 'roles/ntp/**'
       - 'molecule/ntp/**'
       - '.github/workflows/ntp.yml'
+      - 'molecule/common/**'
 jobs:
   molecule:
     runs-on: ubuntu-18.04

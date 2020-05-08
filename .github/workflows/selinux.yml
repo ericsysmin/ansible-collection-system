@@ -5,11 +5,13 @@ on:
       - 'roles/selinux/**'
       - 'molecule/selinux/**'
       - '.github/workflows/selinux.yml'
+      - 'molecule/common/**'
   pull_request:
     paths:
       - 'roles/selinux/**'
       - 'molecule/selinux/**'
       - '.github/workflows/selinux.yml'
+      - 'molecule/common/**'
 jobs:
   molecule:
     runs-on: ubuntu-18.04

@@ -5,11 +5,13 @@ on:
       - 'roles/chrony/**'
       - 'molecule/chrony/**'
       - '.github/workflows/chrony.yml'
+      - 'molecule/common/**'
   pull_request:
     paths:
       - 'roles/chrony/**'
       - 'molecule/chrony/**'
       - '.github/workflows/chrony.yml'
+      - 'molecule/common/**'
 jobs:
   molecule:
     runs-on: ubuntu-18.04

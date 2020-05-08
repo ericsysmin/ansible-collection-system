@@ -5,11 +5,13 @@ on:
       - 'roles/remi_repo/**'
       - 'molecule/remi_repo/**'
       - '.github/workflows/remi_repo.yml'
+      - 'molecule/common/**'
   pull_request:
     paths:
       - 'roles/remi_repo/**'
       - 'molecule/remi_repo/**'
       - '.github/workflows/remi_repo.yml'
+      - 'molecule/common/**'
 jobs:
   molecule:
     runs-on: ubuntu-18.04

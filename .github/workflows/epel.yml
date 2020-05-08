@@ -5,11 +5,13 @@ on:
       - 'roles/epel/**'
       - 'molecule/epel/**'
       - '.github/workflows/epel.yml'
+      - 'molecule/common/**'
   pull_request:
     paths:
       - 'roles/epel/**'
       - 'molecule/epel/**'
       - '.github/workflows/epel.yml'
+      - 'molecule/common/**'
 jobs:
   molecule:
     runs-on: ubuntu-18.04
