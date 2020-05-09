@@ -24,10 +24,6 @@ jobs:
         molecule_distro:
           - distro: centos-7
             command: /usr/sbin/init
-          - distro: centos-8
-            command: /usr/sbin/init
-          # - fedora:29
-          # - fedora:28
           - distro: ubuntu-16.04
             command: /sbin/init
           - distro: ubuntu-18.04
@@ -38,8 +34,6 @@ jobs:
             command: /lib/systemd/systemd
         collection_role:
           - ntp
-        exclude:
-          - {"molecule_distro": {"distro": "centos:8"}, "collection_role":"ntp"}
     steps:
       - name: Check out code
         uses: actions/checkout@v1
