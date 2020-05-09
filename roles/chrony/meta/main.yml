@@ -10,10 +10,28 @@ galaxy_info:
     - name: EL
       versions:
         - 7
+        - 8
     - name: Debian
       versions:
-        - jessie
+        - buster
         - stretch
+        - jessie
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal
+        - xenial
+    - name: ArchLinux
+      versions:
+        - any
+    - name: opensuse
+      versions:
+        - 15.2
+        - 15.1
+        - 15.0
+        - 42.1
+        - 42.2
+        - 42.3
   galaxy_tags:
     - system
     - chrony
