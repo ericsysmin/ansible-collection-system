@@ -9,9 +9,9 @@ lint: |
   ansible-lint
 platforms:
   - name: instance
-    image: ${MOLECULE_DISTRO:-ubuntu:xenial}
+    image: ${MOLECULE_DISTRO:-ubuntu-xenial}
     privileged: true
-    command: ${MOLECULE_COMMAND:-"sleep infinity"}
+    command: ${MOLECULE_COMMAND:-""}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
 provisioner:

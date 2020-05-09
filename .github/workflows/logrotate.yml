@@ -3,11 +3,15 @@ on:
   push:
     paths:
       - 'roles/logrotate/**'
+      - 'molecule/logrotate/**'
       - '.github/workflows/logrotate.yml'
+      - 'molecule/common/**'
   pull_request:
     paths:
       - 'roles/logrotate/**'
+      - 'molecule/logrotate/**'
       - '.github/workflows/logrotate.yml'
+      - 'molecule/common/**'
 jobs:
   logrotate:
     runs-on: ubuntu-18.04
@@ -18,19 +22,17 @@ jobs:
       fail-fast: true
       matrix:
         molecule_distro:
-          - distro: centos:7
+          - distro: centos-7
             command: /usr/sbin/init
-          - distro: centos:8
+          - distro: centos-8
             command: /usr/sbin/init
-          # - fedora:29
-          # - fedora:28
-          - distro: ubuntu:16.04
+          - distro: ubuntu-16.04
             command: /sbin/init
-          - distro: ubuntu:18.04
+          - distro: ubuntu-18.04
             command: /lib/systemd/systemd
-          - distro: ubuntu:20.04
+          - distro: ubuntu-20.04
             command: /lib/systemd/systemd
-          - distro: debian:9
+          - distro: debian-9
             command: /lib/systemd/systemd
         collection_role:
           - logrotate

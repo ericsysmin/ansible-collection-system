@@ -3,11 +3,15 @@ on:
   push:
     paths:
       - 'roles/selinux/**'
+      - 'molecule/selinux/**'
       - '.github/workflows/selinux.yml'
+      - 'molecule/common/**'
   pull_request:
     paths:
       - 'roles/selinux/**'
+      - 'molecule/selinux/**'
       - '.github/workflows/selinux.yml'
+      - 'molecule/common/**'
 jobs:
   molecule:
     runs-on: ubuntu-18.04
@@ -18,9 +22,9 @@ jobs:
       fail-fast: true
       matrix:
         molecule_distro:
-          - distro: centos:7
+          - distro: centos-7
             command: /usr/sbin/init
-          - distro: centos:8
+          - distro: centos-8
             command: /usr/sbin/init
         collection_role:
           - selinux
@@ -38,7 +42,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt install docker
-          python -m pip install --upgrade pip
+          pip install --upgrade pip
           pip install molecule yamllint ansible-lint docker
 
       - name: Run role test

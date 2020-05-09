@@ -9,16 +9,6 @@
       until: task_result is success
       retries: 10
       delay: 2
-    - name: create containerd folder
-      file:
-        path: /etc/systemd/system/containerd.service.d
-        state: directory
-      when: ansible_service_mgr == "systemd"
-    - name: override file for containerd
-      copy:
-        src: files/override.conf
-        dest: /etc/systemd/system/containerd.service.d/override.conf
-      when: ansible_service_mgr == "systemd"
   roles:
     - role: ericsysmin.system.selinux
       when: ansible_os_family == "RedHat"

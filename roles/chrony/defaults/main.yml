@@ -8,3 +8,4 @@ chrony_config_server:
   - 2.pool.ntp.org
   - 3.pool.ntp.org
 chrony_config_logdir: /var/log/chrony
+chrony_config_extra_options: {}
