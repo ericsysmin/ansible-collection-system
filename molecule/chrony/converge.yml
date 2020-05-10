@@ -10,7 +10,9 @@
         systemctl_status.stdout
       retries: 30
       delay: 5
-      when: ansible_service_mgr == 'systemd'
+      when:
+        - ansible_service_mgr == "systemd"
+        - ansible_distribution == "fedora"
       changed_when: false
     - name: Update package cache
       package: update_cache=yes
