@@ -2,6 +2,14 @@
 - name: Converge
   hosts: all
   pre_tasks:
+    - name: Wait for systemd to complete initialization. # noqa 303
+      command: systemctl is-system-running
+      register: systemctl_status
+      until: "'running' in systemctl_status.stdout"
+      retries: 30
+      delay: 5
+      when: ansible_service_mgr == 'systemd'
+      changed_when: false
     - name: Update package cache
       package: update_cache=yes
       changed_when: false
