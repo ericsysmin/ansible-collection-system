@@ -45,9 +45,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt install docker
+          sudo apt install apt-transport-https ca-certificates curl software-properties-common
+          curl -fsSL https://get.docker.com -o get-docker.sh
+          sudo sh get-docker.sh
           python -m pip install --upgrade pip
-          pip install git+https://github.com/ansible-community/molecule.git@master
           pip install molecule yamllint ansible-lint docker
 
       - name: Build the collection
