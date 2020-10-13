@@ -2,6 +2,11 @@
 
 Ansible collection that holds roles, that can be used to configure common system services.
 
+## Collection Installation
+```bash
+ansible-galaxy collection install ericsysmin.system
+```
+
 ## Roles
 
 | Role      | Build Status                                                                                                                                                                                                                                                        | Documentation                                                                                          |
