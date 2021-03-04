@@ -18,18 +18,9 @@
 
 - debug: var=selinux
 
-- block:
-    - name: SELinux | Restart machine
-      shell: sleep 2 && shutdown -r now "Restarting with SELinux Disabled"
-      async: 1
-      poll: 0
-      ignore_errors: true
-    - name: SELinux | Wait for the server to come back
-      become: false
-      delegate_to: localhost
-      wait_for:
-        port: "{{ ssh_port }}"
-        host: "{{ item.address }}"
-        search_regex: SSH
-        delay: 10
-  when: selinux.changed and reboot
+- name: SELinux | Restart machine
+  reboot:
+    reboot_timeout: 3600
+  when: selinux.reboot_required and reboot
+
+
