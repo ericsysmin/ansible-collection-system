@@ -16,10 +16,11 @@
   selinux: policy={{ selinux_policy }} state={{ selinux_state }}
   register: selinux
 
-- debug: var=selinux
+- name: SELinux | Show the output of the previous SELinux change
+  debug: var=selinux
 
 - block:
-    - name: SELinux | Restart machine
+    - name: SELinux | Restart machine # noqa no-changed-when no-changed-when
       shell: sleep 2 && shutdown -r now "Restarting with SELinux Disabled"
       async: 1
       poll: 0

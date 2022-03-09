@@ -9,6 +9,7 @@
   ansible.builtin.template:
     src: chrony.conf.j2
     dest: "{{ chrony_config_location }}"
+    mode: 0644
   notify:
     - restart chrony
 

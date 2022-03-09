@@ -21,9 +21,9 @@
       until: task_result is success
       retries: 10
       delay: 2
-    - name: Repo Remi | Download GPG key (systems without SNI). # noqa 303
+    - name: Repo Remi | Download GPG key (systems without SNI). # noqa no-changed-when
       command: "curl -sSL {{ remi_repo_gpg_key_url }} -o /tmp/remi_repo-gpg"
-    - name: Repo Remi | Add Docker GPG key (systems without SNI). # noqa 303
+    - name: Repo Remi | Add Docker GPG key (systems without SNI). # noqa no-changed-when
       command: rpm --import  /tmp/remi_repo-gpg
     - name: Repo Remi | Remove docker-gpg from tmp folder
       file:
