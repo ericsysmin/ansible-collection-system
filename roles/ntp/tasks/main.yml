@@ -18,6 +18,7 @@
   ansible.builtin.template:
     src: ntp.conf.j2
     dest: /etc/ntp.conf
+    mode: 0664
   notify:
     - restart ntp
   tags:

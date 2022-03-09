@@ -20,7 +20,7 @@
   ansible.builtin.debug: var=selinux
 
 - block:
-    - name: SELinux | Restart machine # noqa no-changed-when no-changed-when
+    - name: SELinux | Restart machine # noqa no-changed-when ignore-errors
       ansible.builtin.shell: sleep 2 && shutdown -r now "Restarting with SELinux Disabled"
       async: 1
       poll: 0
