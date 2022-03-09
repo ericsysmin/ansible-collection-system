@@ -1,6 +1,6 @@
 ---
 - name: Install EPEL repo via Repository Package
-  yum: name=epel-release state=present
+  ansible.builtin.yum: name=epel-release state=present
   register: task_result
   until: task_result is success
   retries: 10
@@ -9,7 +9,7 @@
         ansible_distribution == 'Red Hat Enterprise Linux'
 
 - name: Install EPEL repo via Repository Package
-  dnf:
+  ansible.builtin.dnf:
     enablerepo: PowerTools
   register: task_result
   until: task_result is success
