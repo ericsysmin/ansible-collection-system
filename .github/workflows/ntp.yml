@@ -44,7 +44,7 @@ jobs:
           curl -fsSL https://get.docker.com -o get-docker.sh
           sudo sh get-docker.sh
           python -m pip install --upgrade pip
-          pip install molecule yamllint ansible-lint docker
+          pip install molecule yamllint ansible-lint docker molecule-docker
 
       - name: Run role tests
         run: >-

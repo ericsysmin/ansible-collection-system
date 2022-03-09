@@ -5,13 +5,11 @@ on:
       - 'roles/chrony/**'
       - 'molecule/chrony/**'
       - '.github/workflows/chrony.yml'
-      - 'molecule/common/**'
   pull_request:
     paths:
       - 'roles/chrony/**'
       - 'molecule/chrony/**'
       - '.github/workflows/chrony.yml'
-      - 'molecule/common/**'
 jobs:
   molecule:
     runs-on: ubuntu-18.04
@@ -49,7 +47,7 @@ jobs:
           curl -fsSL https://get.docker.com -o get-docker.sh
           sudo sh get-docker.sh
           python -m pip install --upgrade pip
-          pip install molecule yamllint ansible-lint docker
+          pip install molecule yamllint ansible-lint docker molecule-docker
 
       - name: Build the collection
         run: |
