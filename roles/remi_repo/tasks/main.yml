@@ -1,6 +1,6 @@
 ---
 - name: Repo Remi | Include {{ ansible_distribution }} specific variables
-  include_vars: "{{ item }}"
+  ansible.builtin.include_vars: "{{ item }}"
   with_first_found:
     - vars/{{ ansible_distribution|lower }}.yml
     - vars/default.yml
@@ -8,7 +8,7 @@
 - name: Repo Remi | Import remi GPG key.
   block:
     - name: Repo Remi | Import remi GPG key.
-      rpm_key:
+      ansible.builtin.rpm_key:
         key: "{{ remi_repo_gpg_key_url }}"
       register: task_result
       until: task_result is success
@@ -16,19 +16,19 @@
       delay: 2
   rescue:
     - name: Repo Remi | Ensure curl is present (systems without SNI).
-      package: name=curl
+      ansible.builtin.package: name=curl
       register: task_result
       until: task_result is success
       retries: 10
       delay: 2
     - name: Repo Remi | Download GPG key (systems without SNI). # noqa no-changed-when
-      command: "curl -sSL {{ remi_repo_gpg_key_url }} -o /tmp/remi_repo-gpg"
+      ansible.builtin.command: "curl -sSL {{ remi_repo_gpg_key_url }} -o /tmp/remi_repo-gpg"
     - name: Repo Remi | Add Docker GPG key (systems without SNI). # noqa no-changed-when
-      command: rpm --import  /tmp/remi_repo-gpg
+      ansible.builtin.command: rpm --import  /tmp/remi_repo-gpg
     - name: Repo Remi | Remove docker-gpg from tmp folder
-      file:
+      ansible.builtin.file:
         path: /tmp/remi_repo-gpg
         state: absent
 
 - name: Repo Remi | Install {{ ansible_distribution }} version of Remi Repository
-  include_tasks: "{{ ansible_pkg_mgr }}.yml"
+  ansible.builtin.include_tasks: "{{ ansible_pkg_mgr }}.yml"

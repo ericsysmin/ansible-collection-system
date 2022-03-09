@@ -1,34 +1,34 @@
 ---
 - name: SELinux | Include {{ ansible_os_family }} specific variables
-  include_vars: "{{ item }}"
+  ansible.builtin.include_vars: "{{ item }}"
   with_first_found:
     - vars/{{ ansible_os_family|lower }}.yml
     - vars/default.yml
 
 - name: SELinux | RedHat | Install libselinux-python
-  package: name={{ selinux_python_package }}
+  ansible.builtin.package: name={{ selinux_python_package }}
   register: task_result
   until: task_result is success
   retries: 10
   delay: 2
 
 - name: SELinux | Set SELinux policy and state
-  selinux: policy={{ selinux_policy }} state={{ selinux_state }}
+  ansible.posix.selinux: policy={{ selinux_policy }} state={{ selinux_state }}
   register: selinux
 
 - name: SELinux | Show the output of the previous SELinux change
-  debug: var=selinux
+  ansible.builtin.debug: var=selinux
 
 - block:
     - name: SELinux | Restart machine # noqa no-changed-when no-changed-when
-      shell: sleep 2 && shutdown -r now "Restarting with SELinux Disabled"
+      ansible.builtin.shell: sleep 2 && shutdown -r now "Restarting with SELinux Disabled"
       async: 1
       poll: 0
       ignore_errors: true
     - name: SELinux | Wait for the server to come back
       become: false
       delegate_to: localhost
-      wait_for:
+      ansible.builtin.wait_for:
         port: "{{ ssh_port }}"
         host: "{{ item.address }}"
         search_regex: SSH

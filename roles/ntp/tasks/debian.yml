@@ -1,6 +1,6 @@
 ---
 - name: ntp | Debian | Install the required packages in Debian derivatives
-  apt:
+  ansible.builtin.apt:
     name: ntp
     update_cache: yes
     cache_valid_time: 86400
