@@ -5,13 +5,11 @@ on:
       - 'roles/chrony/**'
       - 'molecule/chrony/**'
       - '.github/workflows/chrony.yml'
-      - 'molecule/common/**'
   pull_request:
     paths:
       - 'roles/chrony/**'
       - 'molecule/chrony/**'
       - '.github/workflows/chrony.yml'
-      - 'molecule/common/**'
 jobs:
   molecule:
     runs-on: ubuntu-18.04
@@ -37,6 +35,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v1
+        with:
+          path: ansible_collections/ericsysmin/system
 
       - name: Set up Python 3.8
         uses: actions/setup-python@v1
@@ -49,15 +49,7 @@ jobs:
           curl -fsSL https://get.docker.com -o get-docker.sh
           sudo sh get-docker.sh
           python -m pip install --upgrade pip
-          pip install molecule yamllint ansible-lint docker
-
-      - name: Build the collection
-        run: |
-          collection_file=$( basename $(ansible-galaxy collection build -f | awk -F" " '{print $NF}'))
-          echo "::set-env name=COLLECTION_FILE::$collection_file"
-
-      - name: Install the collection
-        run: ansible-galaxy collection install $COLLECTION_FILE
+          pip install ansible molecule yamllint ansible-lint docker molecule-docker
 
       - name: Run role tests
         run: >-

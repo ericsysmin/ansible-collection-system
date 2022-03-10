@@ -1,2 +1,10 @@
 ---
 remi_repo_validate_certs: true
+remi_repo_gpg_key_urls:
+  - https://rpms.remirepo.net/RPM-GPG-KEY-remi
+  - https://rpms.remirepo.net/RPM-GPG-KEY-remi2017
+  - https://rpms.remirepo.net/RPM-GPG-KEY-remi2018
+  - https://rpms.remirepo.net/RPM-GPG-KEY-remi2019
+  - https://rpms.remirepo.net/RPM-GPG-KEY-remi2020
+  - https://rpms.remirepo.net/RPM-GPG-KEY-remi2021
+  - https://rpms.remirepo.net/RPM-GPG-KEY-remi2022

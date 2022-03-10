@@ -1,6 +1,6 @@
 ---
 - name: ntp | Suse | Install the required packages in Suse derivatives
-  zypper:
+  ansible.general.zypper:
     name: ntp
     state: "{{ ntp_pkg_state }}"
   when: ansible_os_family == 'Suse'
