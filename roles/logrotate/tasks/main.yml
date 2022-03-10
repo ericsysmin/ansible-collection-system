@@ -2,7 +2,7 @@
 # tasks file for ericsysmin.logrotate
 
 - name: Logrotate | Install logrotate
-  package: name=logrotate
+  ansible.builtin.package: name=logrotate
   when: logrotate_install
   register: task_result
   until: task_result is success
@@ -10,8 +10,9 @@
   delay: 2
 
 - name: Logrotate | Setup logrotate.d scripts
-  template:
+  ansible.builtin.template:
     src: logrotate.d.j2
     dest: "{{ logrotate_conf_dir }}{{ item.name }}"
+    mode: 0644
   with_items: "{{ logrotate_files }}"
   when: logrotate_files is defined
