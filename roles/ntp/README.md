@@ -1,6 +1,6 @@
 # ericsysmin.system.ntp
 
-[![Build Status](https://travis-ci.com/ericsysmin/ansible-role-ntp.png?branch=master)](https://travis-ci.com/ericsysmin/ansible-role-ntp)
+[![Build Status](https://travis-ci.com/ericsysmin/ansible-role-ntp.png?branch=main)](https://travis-ci.com/ericsysmin/ansible-role-ntp)
 
 This role enables users to install and configure ntp on their hosts.
 

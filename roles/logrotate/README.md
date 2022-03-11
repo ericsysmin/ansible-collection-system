@@ -1,6 +1,6 @@
 # ericsysmin.system.logrotate
 
-[![Build Status](https://travis-ci.org/ericsysmin/ansible-role-logrotate.svg?branch=master)](https://travis-ci.org/ericsysmin/ansible-role-llogrotate)
+[![Build Status](https://travis-ci.org/ericsysmin/ansible-role-logrotate.svg?branch=main)](https://travis-ci.org/ericsysmin/ansible-role-llogrotate)
 
 This role installs logrotate on linux systems.
 
