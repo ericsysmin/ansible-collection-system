@@ -1,13 +1,15 @@
 ---
+# code: language=ansible
+
 # defaults file for ericsysmin.epel
 
 epel_manual: false
 
 # vars if epel_manual is true
-epel_repo_gpg_key_url: "http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
-epel_repo_gpg_key_file: "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
-epel_repo_url: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
-epel_repofile_path: "/etc/yum.repos.d/epel.repo"
+epel_repo_gpg_key_url: http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}
+epel_repo_gpg_key_file: /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}
+epel_repo_url: https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm
+epel_repofile_path: /etc/yum.repos.d/epel.repo
 
 epel_repo_use_baseurl: false
 epel_repo_baseurl: http://download.fedoraproject.org/pub/epel/{{ ansible_distribution_major_version }}/$basearch

@@ -2,7 +2,7 @@
 - name: Repo Remi | Include {{ ansible_distribution }} specific variables
   ansible.builtin.include_vars: "{{ item }}"
   with_first_found:
-    - vars/{{ ansible_distribution|lower }}.yml
+    - vars/{{ ansible_distribution | lower }}.yml
     - vars/default.yml
 
 - name: Repo Remi | Import remi GPG keys.
@@ -19,13 +19,14 @@
       delay: 2
   rescue:
     - name: Repo Remi | Ensure curl is present (systems without SNI).
-      ansible.builtin.package: name=curl
+      ansible.builtin.package:
+        name: curl
       register: task_result
       until: task_result is success
       retries: 10
       delay: 2
     - name: Repo Remi | Download GPG key (systems without SNI). # noqa no-changed-when command-instead-of-module
-      ansible.builtin.command: "curl -sSL {{ remi_repo_gpg_key_url }} -o /tmp/remi_repo-gpg"
+      ansible.builtin.command: curl -sSL {{ remi_repo_gpg_key_url }} -o /tmp/remi_repo-gpg
     - name: Repo Remi | Add Docker GPG key (systems without SNI). # noqa no-changed-when command-instead-of-module
       ansible.builtin.command: rpm --import  /tmp/remi_repo-gpg
     - name: Repo Remi | Remove docker-gpg from tmp folder

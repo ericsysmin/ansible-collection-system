@@ -1,12 +1,15 @@
 ---
+# code: language=ansible
+
 - name: Install EPEL repo via Repository Package
-  ansible.builtin.yum: name=epel-release state=present
+  ansible.builtin.yum:
+    name: epel-release
+    state: present
   register: task_result
   until: task_result is success
   retries: 10
   delay: 2
-  when: ansible_distribution == 'CentOS' or
-        ansible_distribution == 'Red Hat Enterprise Linux'
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
 - name: Install EPEL repo via Repository Package
   ansible.builtin.dnf:
@@ -15,6 +18,4 @@
   until: task_result is success
   retries: 10
   delay: 2
-  when:
-    - ansible_os_family == "RedHat"
-    - ansible_distribution_major_version|int >= 8
+  when: ansible_os_family == "RedHat" and ansible_distribution_major_version|int >= 8

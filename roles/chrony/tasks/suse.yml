@@ -1,13 +1,19 @@
 ---
+# code: language=ansible
+
 - name: Install the required packages on SuSE
   community.general.zypper:
     name: chrony
     state: "{{ chrony_pkg_state }}"
 
 - name: Check if ntpd service exists
-  ansible.builtin.stat: path="/usr/lib/systemd/system/ntpd.service"
+  ansible.builtin.stat:
+    path: /usr/lib/systemd/system/ntpd.service
   register: ntpd_service_status
 
 - name: Stop and mask ntpd service
-  ansible.builtin.systemd: name=ntpd state=stopped masked=yes
+  ansible.builtin.systemd:
+    name: ntpd
+    state: stopped
+    masked: true
   when: ntpd_service_status.stat.exists

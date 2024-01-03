@@ -1,2 +1,2 @@
 ---
-remi_repo_url: "https://rpms.remirepo.net/fedora/remi-release-{{ ansible_distribution_major_version }}.rpm"
+remi_repo_url: https://rpms.remirepo.net/fedora/remi-release-{{ ansible_distribution_major_version }}.rpm
