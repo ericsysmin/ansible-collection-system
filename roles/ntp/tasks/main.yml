@@ -1,5 +1,5 @@
 ---
-- name: ntp | Add the OS specific variables
+- name: Ntp | Add the OS specific variables
   ansible.builtin.include_vars: "{{ item }}"
   with_first_found:
     - "{{ ansible_distribution }}{{ ansible_distribution_major_version }}.yml"
@@ -11,14 +11,14 @@
     - service
     - ntp
 
-- name: ntp | Installation
+- name: Ntp | Installation
   ansible.builtin.include_tasks: "{{ ansible_os_family|lower }}.yml"
 
-- name: ntp | Copy the ntp.conf template file
+- name: Ntp | Copy the ntp.conf template file
   ansible.builtin.template:
     src: ntp.conf.j2
     dest: /etc/ntp.conf
-    mode: 0664
+    mode: "0664"
   notify:
     - restart ntp
   tags:
@@ -31,7 +31,7 @@
     name: "{{ ntp_service_name }}"
     state: "{{ ntp_service_state }}"
     enabled: "{{ ntp_service_enabled }}"
-    pattern: '/ntpd'
+    pattern: /ntpd
   tags:
     - service
     - ntp

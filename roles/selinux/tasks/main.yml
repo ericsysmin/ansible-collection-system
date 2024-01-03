@@ -1,23 +1,29 @@
 ---
-- name: SELinux | Include {{ ansible_os_family }} specific variables
+# code: language=ansible
+
+- name: SELinux | Include specific variables {{ ansible_os_family }}
   ansible.builtin.include_vars: "{{ item }}"
   with_first_found:
-    - vars/{{ ansible_os_family|lower }}.yml
+    - vars/{{ ansible_os_family | lower }}.yml
     - vars/default.yml
 
 - name: SELinux | RedHat | Install libselinux-python
-  ansible.builtin.package: name={{ selinux_python_package }}
+  ansible.builtin.package:
+    name: "{{ selinux_python_package }}"
   register: task_result
   until: task_result is success
   retries: 10
   delay: 2
 
 - name: SELinux | Set SELinux policy and state
-  ansible.posix.selinux: policy={{ selinux_policy }} state={{ selinux_state }}
+  ansible.posix.selinux:
+    policy: "{{ selinux_policy }}"
+    state: "{{ selinux_state }}"
   register: selinux
 
 - name: SELinux | Show the output of the previous SELinux change
-  ansible.builtin.debug: var=selinux
+  ansible.builtin.debug:
+    var: selinux
 
 - name: SELinux | Restart machine
   ansible.builtin.reboot:

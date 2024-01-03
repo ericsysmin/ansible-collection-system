@@ -5,6 +5,7 @@
     validate_certs: "{{ remi_repo_validate_certs }}"
 
 - name: Repo Remi | Enable/Disable specific remi repository
+  when: remi_repo_enable_list is defined or remi_repo_disable_list is defined
   block:
     - name: Repo Remi | Make sure yum-utils are present
       ansible.builtin.yum:
@@ -22,6 +23,4 @@
 
     - name: Repo Remi | Update yum cache
       ansible.builtin.yum:
-        update_cache: yes
-  when: remi_repo_enable_list is defined or
-        remi_repo_disable_list is defined
+        update_cache: true

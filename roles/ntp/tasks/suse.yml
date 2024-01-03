@@ -1,5 +1,5 @@
 ---
-- name: ntp | Suse | Install the required packages in Suse derivatives
+- name: Ntp | Suse | Install the required packages in Suse derivatives
   ansible.general.zypper:
     name: ntp
     state: "{{ ntp_pkg_state }}"

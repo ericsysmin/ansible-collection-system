@@ -1,19 +1,21 @@
 ---
-- name: chrony | Add the OS specific variables
-  ansible.builtin.include_vars: "{{ ansible_os_family|lower }}.yml"
+# code: language=ansible
 
-- name: chrony | Installation
-  ansible.builtin.include_tasks: "{{ ansible_os_family|lower }}.yml"
+- name: Chrony | Add the OS specific variables
+  ansible.builtin.include_vars: "{{ ansible_os_family | lower }}.yml"
 
-- name: chrony | Copy the chrony.conf template file
+- name: Chrony | Installation
+  ansible.builtin.include_tasks: "{{ ansible_os_family | lower }}.yml"
+
+- name: Chrony | Copy the chrony.conf template file
   ansible.builtin.template:
     src: chrony.conf.j2
     dest: "{{ chrony_config_location }}"
-    mode: 0644
+    mode: "0644"
   notify:
     - restart chrony
 
-- name: chrony | start and enable chrony service
+- name: Chrony | start and enable chrony service
   ansible.builtin.service:
     name: "{{ chrony_service_name }}"
     state: "{{ chrony_service_state }}"
