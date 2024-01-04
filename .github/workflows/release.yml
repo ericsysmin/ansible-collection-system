@@ -6,7 +6,7 @@ on:
       - created
 jobs:
   release:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     env:
       ANSIBLE_GALAXY_TOKEN: ${{ secrets.ANSIBLE_GALAXY_TOKEN }}
       ANSIBLE_FORCE_COLOR: 1

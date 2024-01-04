@@ -25,7 +25,7 @@ galaxy_info:
         - xenial
     - name: ArchLinux
       versions:
-        - any
+        - all
     - name: opensuse
       versions:
         - 15.2
