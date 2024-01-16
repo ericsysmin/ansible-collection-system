@@ -2,14 +2,14 @@ name: "ericsysmin.system.selinux"
 on:
   push:
     paths:
-      - 'roles/selinux/**'
-      - 'molecule/selinux/**'
-      - '.github/workflows/selinux.yml'
+      - "roles/selinux/**"
+      - "molecule/selinux/**"
+      - ".github/workflows/selinux.yml"
   pull_request:
     paths:
-      - 'roles/selinux/**'
-      - 'molecule/selinux/**'
-      - '.github/workflows/selinux.yml'
+      - "roles/selinux/**"
+      - "molecule/selinux/**"
+      - ".github/workflows/selinux.yml"
 jobs:
   molecule:
     runs-on: ubuntu-latest
@@ -20,8 +20,8 @@ jobs:
       fail-fast: true
       matrix:
         molecule_distro:
-          - { "distro":"centos-7", "command":"/usr/sbin/init" }
-          - { "distro":"centos-8", "command":"/usr/sbin/init" }
+          - { "distro": "centos-7", "command": "/usr/sbin/init" }
+          - { "distro": "centos-8", "command": "/usr/sbin/init" }
         collection_role:
           - selinux
     steps:
@@ -34,7 +34,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.12
-  
+
       - name: Install dependencies
         run: |
           sudo apt install apt-transport-https ca-certificates curl software-properties-common
