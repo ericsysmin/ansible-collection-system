@@ -5,17 +5,7 @@ galaxy_info:
   company: Avi Networks
   description: Remi's RPM repository for RHEL/CentOS.
   license: MIT
-  min_ansible_version: 2.4
-  platforms:
-    - name: EL
-      versions:
-        - 6
-        - 7
-    - name: Fedora
-      versions:
-        - 28
-        - 27
-        - 26
+  min_ansible_version: "2.10"
   galaxy_tags:
     - packaging
     - epel

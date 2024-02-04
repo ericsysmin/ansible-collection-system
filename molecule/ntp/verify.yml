@@ -1,4 +1,5 @@
 ---
+# code: language=ansible
 # This is an example playbook to execute Ansible tests.
 
 - name: Verify

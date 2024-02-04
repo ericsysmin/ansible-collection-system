@@ -1,4 +1,5 @@
 ---
+# code: language=ansible
 - name: Ntp | Suse | Install the required packages in Suse derivatives
   community.general.zypper:
     name: ntp

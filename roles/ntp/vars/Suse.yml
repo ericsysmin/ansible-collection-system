@@ -1,3 +1,4 @@
 ---
+# code: language=ansible
 ntp_service_name: ntp
 ntp_config_driftfile: /var/lib/ntp/drift/ntp.drift

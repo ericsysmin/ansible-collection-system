@@ -1,4 +1,5 @@
 ---
+# code: language=ansible
 remi_repo_validate_certs: true
 remi_repo_gpg_key_urls:
   - https://rpms.remirepo.net/RPM-GPG-KEY-remi

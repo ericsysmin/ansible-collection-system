@@ -1,4 +1,5 @@
 ---
+# code: language=ansible
 - name: Converge
   hosts: all
   pre_tasks:

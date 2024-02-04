@@ -1,4 +1,5 @@
 ---
+# code: language=ansible
 - name: Ntp | Debian | Install the required packages in Debian derivatives
   ansible.builtin.apt:
     name: ntp

@@ -7,12 +7,6 @@ galaxy_info:
   description: Role to configure EPEL on RHEL/CentOS based systems
   license: MIT
   min_ansible_version: "2.10"
-  platforms:
-    - name: EL
-      versions:
-        - "6"
-        - "7"
-        - "8"
   galaxy_tags:
     - epel
     - rhel

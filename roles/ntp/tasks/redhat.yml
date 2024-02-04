@@ -1,4 +1,5 @@
 ---
+# code: language=ansible
 - name: Ntp | RedHat | Remove chrony from RedHat 7 Installations to prevent conflict.
   ansible.builtin.yum:
     name: chrony

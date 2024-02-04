@@ -1,5 +1,6 @@
 ---
-- name: Repo Remi | Include {{ ansible_distribution }} specific variables
+# code: language=ansible
+- name: Repo Remi | Include distribution specific variables | {{ ansible_distribution }}
   ansible.builtin.include_vars: "{{ item }}"
   with_first_found:
     - vars/{{ ansible_distribution | lower }}.yml
@@ -34,5 +35,5 @@
         path: /tmp/remi_repo-gpg
         state: absent
 
-- name: Repo Remi | Install {{ ansible_distribution }} version of Remi Repository
+- name: Repo Remi | Install distribution version of Remi Repository | {{ ansible_distribution }}
   ansible.builtin.include_tasks: "{{ ansible_pkg_mgr }}.yml"

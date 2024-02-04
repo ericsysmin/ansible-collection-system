@@ -1,4 +1,5 @@
 ---
+# code: language=ansible
 - name: Repo Remi | DNF | Deploy repository
   ansible.builtin.dnf:
     name: "{{ remi_repo_url }}"
@@ -11,12 +12,12 @@
       ansible.builtin.dnf:
         name: dnf-plugins-core
 
-    - name: Repo Remi | Enable remi repository
+    - name: Repo Remi | Enable remi repository # noqa no-changed-when
       ansible.builtin.command: dnf config-manager --enable {{ item }}
       loop: "{{ remi_repo_enable_list }}"
       when: remi_repo_enable_list is defined
 
-    - name: Repo Remi | Disable remi repository
+    - name: Repo Remi | Disable remi repository # noqa no-changed-when
       ansible.builtin.command: dnf config-manager --disable {{ item }}
       loop: "{{ remi_repo_disable_list }}"
       when: remi_repo_disable_list is defined

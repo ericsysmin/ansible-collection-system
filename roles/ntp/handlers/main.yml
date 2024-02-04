@@ -1,4 +1,5 @@
 ---
+# code: language=ansible
 - name: Restart ntp
   ansible.builtin.service:
     name: "{{ ntp_service_name }}"
