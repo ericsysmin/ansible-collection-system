@@ -14,6 +14,7 @@ platforms:
     command: ${MOLECULE_COMMAND:-""}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    cgroupns_mode: host
 provisioner:
   name: ansible
   playbooks:
