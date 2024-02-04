@@ -18,7 +18,7 @@ jobs:
       PY_COLORS: 1
       ANSIBLE_FORCE_COLOR: 1
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         molecule_distro:
           - { distro: centos-7, command: /usr/sbin/init }
