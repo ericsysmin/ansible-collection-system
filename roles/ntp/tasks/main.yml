@@ -21,7 +21,7 @@
     dest: /etc/ntp.conf
     mode: "0664"
   notify:
-    - Ntp | restart ntp
+    - Ntp | Restart ntp
   tags:
     - configuration
     - package
