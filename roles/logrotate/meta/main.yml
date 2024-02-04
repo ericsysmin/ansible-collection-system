@@ -8,23 +8,5 @@ galaxy_info:
   issue_tracker_url: https://github.com/ericsysmin/ansible-role-logrotate/issues
   license: MIT
   min_ansible_version: "2.11"
-  platforms:
-    - name: EL
-      versions:
-        - 7
-    - name: Fedora
-      versions:
-        - 27
-        - 28
-    - name: Ubuntu
-      versions:
-        - trusty
-        - xenial
-        - bionic
-    - name: Debian
-      versions:
-        - jessie
-        - stretch
-        - wheezy
   galaxy_tags: []
 dependencies: []

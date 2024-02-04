@@ -1,6 +1,6 @@
 ---
 # code: language=ansible
-- name: Restart ntp
+- name: Ntp | Restart ntp
   ansible.builtin.service:
     name: "{{ ntp_service_name }}"
     state: restarted

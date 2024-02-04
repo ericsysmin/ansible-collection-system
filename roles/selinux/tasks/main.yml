@@ -28,4 +28,4 @@
 - name: SELinux | Restart machine
   ansible.builtin.reboot:
     reboot_timeout: 3600
-  when: selinux.reboot_required and reboot
+  when: selinux.reboot_required and selinux_reboot
