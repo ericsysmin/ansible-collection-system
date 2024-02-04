@@ -1,15 +1,16 @@
-name: "ericsysmin.system.selinux"
+---
+name: ericsysmin.system.selinux
 on:
   push:
     paths:
-      - "roles/selinux/**"
-      - "molecule/selinux/**"
-      - ".github/workflows/selinux.yml"
+      - roles/selinux/**
+      - molecule/selinux/**
+      - .github/workflows/selinux.yml
   pull_request:
     paths:
-      - "roles/selinux/**"
-      - "molecule/selinux/**"
-      - ".github/workflows/selinux.yml"
+      - roles/selinux/**
+      - molecule/selinux/**
+      - .github/workflows/selinux.yml
 jobs:
   molecule:
     runs-on: ubuntu-latest
@@ -20,13 +21,13 @@ jobs:
       fail-fast: true
       matrix:
         molecule_distro:
-          - { "distro": "centos-7", "command": "/usr/sbin/init" }
-          - { "distro": "centos-8", "command": "/usr/sbin/init" }
+          - { distro: centos-7, command: /usr/sbin/init }
+          - { distro: centos-8, command: /usr/sbin/init }
         collection_role:
           - selinux
     steps:
       - name: Check out code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
         with:
           path: ansible_collections/ericsysmin/system
 

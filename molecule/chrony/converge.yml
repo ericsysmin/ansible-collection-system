@@ -2,8 +2,8 @@
 - name: Converge
   hosts: all
   pre_tasks:
-    - name: Wait for systemd to complete initialization.  # noqa 303
-      command: systemctl is-system-running
+    - name: Wait for systemd to complete initialization. # noqa command-instead-of-module
+      ansible.builtin.command: systemctl is-system-running
       register: systemctl_status
       until: >-
         "running" in systemctl_status.stdout or "degraded" in
@@ -15,7 +15,8 @@
         - ansible_distribution == "Fedora"
       changed_when: false
     - name: Update package cache
-      package: update_cache=yes
+      ansible.builtin.package:
+        update_cache: true
       changed_when: false
       register: task_result
       until: task_result is success

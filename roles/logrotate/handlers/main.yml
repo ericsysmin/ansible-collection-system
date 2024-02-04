@@ -1,2 +1,4 @@
 ---
+# code: language=ansible
+
 # handlers file for ericsysmin.logrotate

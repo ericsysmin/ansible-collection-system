@@ -1,15 +1,16 @@
-name: "ericsysmin.system.epel"
+---
+name: ericsysmin.system.epel
 on:
   push:
     paths:
-      - "roles/epel/**"
-      - "molecule/epel/**"
-      - ".github/workflows/epel.yml"
+      - roles/epel/**
+      - molecule/epel/**
+      - .github/workflows/epel.yml
   pull_request:
     paths:
-      - "roles/epel/**"
-      - "molecule/epel/**"
-      - ".github/workflows/epel.yml"
+      - roles/epel/**
+      - molecule/epel/**
+      - .github/workflows/epel.yml
 jobs:
   molecule:
     runs-on: ubuntu-latest
@@ -20,13 +21,13 @@ jobs:
       fail-fast: true
       matrix:
         molecule_distro:
-          - { "distro": "centos-7", "command": "/usr/sbin/init" }
-          - { "distro": "centos-8", "command": "/usr/sbin/init" }
+          - { distro: centos-7, command: /usr/sbin/init }
+          - { distro: centos-8, command: /usr/sbin/init }
         collection_role:
           - epel
     steps:
       - name: Check out code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
         with:
           path: ansible_collections/ericsysmin/system
 

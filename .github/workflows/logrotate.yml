@@ -1,15 +1,16 @@
-name: "ericsysmin.system.logrotate"
+---
+name: ericsysmin.system.logrotate
 on:
   push:
     paths:
-      - "roles/logrotate/**"
-      - "molecule/logrotate/**"
-      - ".github/workflows/logrotate.yml"
+      - roles/logrotate/**
+      - molecule/logrotate/**
+      - .github/workflows/logrotate.yml
   pull_request:
     paths:
-      - "roles/logrotate/**"
-      - "molecule/logrotate/**"
-      - ".github/workflows/logrotate.yml"
+      - roles/logrotate/**
+      - molecule/logrotate/**
+      - .github/workflows/logrotate.yml
 jobs:
   logrotate:
     runs-on: ubuntu-latest
@@ -20,19 +21,21 @@ jobs:
       fail-fast: true
       matrix:
         molecule_distro:
-          - { "distro": "centos-7", "command": "/usr/sbin/init" }
-          - { "distro": "centos-8", "command": "/usr/sbin/init" }
-          - { "distro": "fedora-32", "command": "/usr/sbin/init" }
-          - { "distro": "fedora-31", "command": "/usr/sbin/init" }
-          - { "distro": "fedora-30", "command": "/usr/lib/systemd/systemd" }
-          - { "distro": "ubuntu-18.04", "command": "/lib/systemd/systemd" }
-          - { "distro": "ubuntu-20.04", "command": "/lib/systemd/systemd" }
-          - { "distro": "debian-10", "command": "/lib/systemd/systemd" }
+          - { distro: centos-7, command: /usr/sbin/init }
+          - { distro: centos-8, command: /usr/sbin/init }
+          - { distro: fedora-32, command: /usr/sbin/init }
+          - { distro: fedora-31, command: /usr/sbin/init }
+          - { distro: fedora-30, command: /usr/lib/systemd/systemd }
+          - { distro: ubuntu-16.04, command: /sbin/init }
+          - { distro: ubuntu-18.04, command: /lib/systemd/systemd }
+          - { distro: ubuntu-20.04, command: /lib/systemd/systemd }
+          - { distro: debian-9, command: /lib/systemd/systemd }
+          - { distro: debian-10, command: /lib/systemd/systemd }
         collection_role:
           - logrotate
     steps:
       - name: Check out code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
         with:
           path: ansible_collections/ericsysmin/system
 
