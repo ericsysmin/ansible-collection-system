@@ -2,7 +2,7 @@
 
 # List of NTP servers to use.
 {% for server in chrony_config_server %}
-server {{ server }} iburst
+{{ chrony_server_param }} {{ server }} iburst
 {% endfor %}
 
 # This directive specify the location of the file containing ID/key pairs for
