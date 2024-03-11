@@ -10,6 +10,8 @@
       until: task_result is success
       retries: 10
       delay: 2
-  roles:
-    - role: ericsysmin.system.epel
+  tasks:
+    - name: Molecule | EPEL Role
+      ansible.builtin.include_role:
+        name: ericsysmin.system.epel
       when: ansible_os_family == "RedHat"
