@@ -1,14 +1,16 @@
 ---
+# code: language=ansible
+
 # tasks file for ericsysmin.epel
 
-- name: epel | Install epel repo using epel-release
-  ansible.builtin.include_tasks: "{{ ansible_os_family|lower }}.yml"
+- name: Epel | Install epel repo using epel-release
+  ansible.builtin.include_tasks: "{{ ansible_os_family | lower }}.yml"
   when:
-    - ansible_os_family|lower == "redhat"
+    - ansible_os_family | lower == "redhat"
     - not epel_manual
 
-- name: epel | Install epel repo manually
-  ansible.builtin.include_tasks: "{{ ansible_os_family|lower }}_manual.yml"
+- name: Epel | Install epel repo manually
+  ansible.builtin.include_tasks: "{{ ansible_os_family | lower }}_manual.yml"
   when:
-    - ansible_os_family|lower == "redhat"
+    - ansible_os_family | lower == "redhat"
     - epel_manual

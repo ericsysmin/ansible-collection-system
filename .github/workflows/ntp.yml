@@ -1,15 +1,16 @@
-name: "ericsysmin.system.ntp"
+---
+name: ericsysmin.system.ntp
 on:
   push:
     paths:
-      - 'roles/ntp/**'
-      - 'molecule/ntp/**'
-      - '.github/workflows/ntp.yml'
+      - roles/ntp/**
+      - molecule/ntp/**
+      - .github/workflows/ntp.yml
   pull_request:
     paths:
-      - 'roles/ntp/**'
-      - 'molecule/ntp/**'
-      - '.github/workflows/ntp.yml'
+      - roles/ntp/**
+      - molecule/ntp/**
+      - .github/workflows/ntp.yml
 jobs:
   molecule:
     runs-on: ubuntu-latest
@@ -17,14 +18,12 @@ jobs:
       PY_COLORS: 1
       ANSIBLE_FORCE_COLOR: 1
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         molecule_distro:
-          - { "distro":"centos-7", "command":"/usr/sbin/init" }
-          - { "distro":"ubuntu-16.04", "command":"/sbin/init" }
-          - { "distro":"ubuntu-18.04", "command":"/lib/systemd/systemd" }
-          - { "distro":"ubuntu-20.04", "command":"/lib/systemd/systemd" }
-          - { "distro":"debian-9", "command":"/lib/systemd/systemd" }
+          - { distro: ubuntu-18.04, command: /lib/systemd/systemd }
+          - { distro: ubuntu-20.04, command: /lib/systemd/systemd }
+          - { distro: debian-10, command: /lib/systemd/systemd }
         collection_role:
           - ntp
     steps:
@@ -37,7 +36,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.12
-  
+
       - name: Install dependencies
         run: |
           sudo apt install apt-transport-https ca-certificates curl software-properties-common

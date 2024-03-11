@@ -1,11 +1,13 @@
 ---
+# code: language=ansible
+
 chrony_pkg_state: present
 chrony_service_state: started
-chrony_service_enabled: yes
+chrony_service_enabled: true
 chrony_config_server:
-  - 0.pool.ntp.org
-  - 1.pool.ntp.org
-  - 2.pool.ntp.org
-  - 3.pool.ntp.org
+  - "0.pool.ntp.org"
+  - "1.pool.ntp.org"
+  - "2.pool.ntp.org"
+  - "3.pool.ntp.org"
 chrony_config_logdir: /var/log/chrony
 chrony_config_extra_options: {}

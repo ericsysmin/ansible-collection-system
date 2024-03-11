@@ -3,12 +3,15 @@
   hosts: all
   pre_tasks:
     - name: Update package cache
-      package: update_cache=yes
+      ansible.builtin.package:
+        update_cache: true
       changed_when: false
       register: task_result
       until: task_result is success
       retries: 10
       delay: 2
-  roles:
-    - role: ericsysmin.system.epel
+  tasks:
+    - name: Molecule | EPEL Role
+      ansible.builtin.include_role:
+        name: ericsysmin.system.epel
       when: ansible_os_family == "RedHat"

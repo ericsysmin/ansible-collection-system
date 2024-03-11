@@ -1,5 +1,6 @@
 ---
-- name: ntp | RedHat | Remove chrony from RedHat 7 Installations to prevent conflict.
+# code: language=ansible
+- name: Ntp | RedHat | Remove chrony from RedHat 7 Installations to prevent conflict.
   ansible.builtin.yum:
     name: chrony
     state: absent
@@ -12,7 +13,7 @@
     - package
     - ntp
 
-- name: ntp | RedHat | Install the required packages in Redhat derivatives
+- name: Ntp | RedHat | Install the required packages in Redhat derivatives
   ansible.builtin.yum:
     name: ntp
     state: "{{ ntp_pkg_state }}"

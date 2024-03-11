@@ -1,4 +1,4 @@
-selinux_python_package: >-
-  {%- if ansible_python.version.major == 2 -%}libselinux-python
-  {%- else -%}libselinux-python3
-  {%- endif -%}
+---
+# code: language=ansible
+selinux_python_package: "{{ (ansible_python.version.major == 2) |
+  ternary('libselinux-python', 'libselinux-python3') }}"

@@ -1,8 +1,9 @@
 ---
-- name: ntp | Debian | Install the required packages in Debian derivatives
+# code: language=ansible
+- name: Ntp | Debian | Install the required packages in Debian derivatives
   ansible.builtin.apt:
     name: ntp
-    update_cache: yes
+    update_cache: true
     cache_valid_time: 86400
     state: "{{ ntp_pkg_state }}"
   when: ansible_os_family == 'Debian'
