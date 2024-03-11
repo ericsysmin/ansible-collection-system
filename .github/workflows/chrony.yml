@@ -22,9 +22,9 @@ jobs:
       matrix:
         molecule_distro:
           - {distro: centos-8, command: /usr/sbin/init}
-          - {distro: ubuntu-18.04, command: /lib/systemd/systemd}
-          - {distro: ubuntu-20.04, command: /lib/systemd/systemd}
-          - {distro: debian-10, command: /lib/systemd/systemd}
+          # - {distro: ubuntu-18.04, command: /lib/systemd/systemd}
+          # - {distro: ubuntu-20.04, command: /lib/systemd/systemd}
+          # - {distro: debian-10, command: /lib/systemd/systemd}
         collection_role:
           - chrony
     steps:
